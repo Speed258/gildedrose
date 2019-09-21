@@ -112,6 +112,7 @@ namespace csharpcore
                 if ((currentitem.SellIn < RemainingDay) && (currentitem.Quality > UpdateQuality))
                 {
                     currentitem.Quality -= QualityChangingSpeed;
+                    currentitem.Quality = currentitem.Quality < 0 ? 0 : currentitem.Quality;//just in case quality goes below 0
                 }
             }
             return currentitem;
@@ -139,6 +140,7 @@ namespace csharpcore
                 if (currentitem.Quality > UpdateQuality)
                 {
                     currentitem.Quality -= QualityChangingSpeed;
+                    currentitem.Quality = currentitem.Quality < 0 ? 0 : currentitem.Quality;
                 }
             }
             return currentitem;
